@@ -22,6 +22,7 @@ RUN apt install -yy ros-melodic-robot-state-publisher ros-melodic-teleop-twist-k
 
 RUN mkdir -p /ws/src;
 COPY ./src/ /ws/src
+RUN rosdep init; rosdep update;
 RUN rosdep install -y -r --from-path /ws/src
 RUN source /opt/ros/$ROS_DISTRO/setup.bash;\
  cd /ws;\
