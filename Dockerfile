@@ -3,9 +3,6 @@ FROM ros:melodic-ros-base
 ENV DEBIAN_FRONTEND=noninteractive
 SHELL ["/bin/bash", "-c"]
 
-ARG user
-ARG password
-
 RUN apt-get update;\
     apt-get install -yy python-catkin-tools software-properties-common wget;
 
@@ -21,9 +18,9 @@ RUN wget -qO - http://packages.openrobotino.org/keyFile | apt-key add -;\
     adduser --system --group --no-create-home robotino;\
     apt install -yy robotino-api2 robotino-dev
 
-RUN apt install -yy ros-melodic-robot-state-publisher;
+RUN apt install -yy ros-melodic-robot-state-publisher ros-melodic-teleop-twist-keyboard;
 
-RUN mkdir -p /ws/src
+RUN mkdir -p /ws/src;
 COPY ./src/ /ws/src
 RUN rosdep install -y -r --from-path /ws/src
 RUN source /opt/ros/$ROS_DISTRO/setup.bash;\
