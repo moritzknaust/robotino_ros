@@ -2,6 +2,20 @@
 
 This packages provides the base packages used to communicate with a Festo robotino robot in a docker image.
 
+## Install x11docker for GUI
+
+Install x11docker (https://github.com/mviereck/x11docker):
+```
+curl -fsSL https://raw.githubusercontent.com/mviereck/x11docker/master/x11docker | sudo bash -s -- --update
+```
+Install dependencies
+
+```
+sudo apt install xpra xserver-xephyr xinit xauth xclip x11-xserver-utils weston xwayland xdotool
+```
+
+Follow output of x11docker to install the gpu driver.
+
 ## Usage
 
 Build the docker image:

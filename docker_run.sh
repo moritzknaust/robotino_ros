@@ -1,4 +1,4 @@
-x11docker --hostdisplay --gpu --shell="bash" --interactive -- \
+x11docker --gpu --shell="bash" --interactive -- \
 --network host \
 --mount type=bind,source=$(pwd)/src,target=/ws/src \
 --env HOME=/home.tmp/$USER \
